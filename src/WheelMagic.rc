@@ -1,0 +1,100 @@
+/******************************************************************************
+*                                                                             *
+*    WheelMagic.rc                          Copyright(c) 2009-2016 itow,y.    *
+*                                                                             *
+******************************************************************************/
+
+/******************************************************************************
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+******************************************************************************/
+
+
+#include "WheelMagic.h"
+#include "resource.h"
+
+LANGUAGE LANG_JAPANESE, SUBLANG_DEFAULT
+#pragma code_page(932)
+
+
+IDI_ICON ICON "WheelMagic.ico"
+
+IDM_TRAY MENU
+BEGIN
+	POPUP ""
+	BEGIN
+		MENUITEM "終了(&X)", CM_EXIT
+	END
+END
+
+STRINGTABLE
+BEGIN
+	IDS_ERR_CREATEMUTEX,	"Mutexを作成できません。"
+	IDS_ERR_ALREADYRUNNING,	"既に起動しています。"
+	IDS_ERR_REGISTERCLASS,	"ウィンドウクラスを登録できません。"
+	IDS_ERR_CREATEWINDOW,	"ウィンドウを作成できません。"
+	IDS_ERR_BEGINHOOK,		"フックプロシージャを登録できません。"
+	IDS_ERR_GETMESSAGE,		"ウィンドウメッセージの取得でエラーが発生しました。"
+	IDS_ERR_ADDTRAYICON,	"トレイアイコンを登録できません。"
+#ifdef HOOK_DLL
+	IDS_ERR_HOOKDLLLOAD,	"WheelMagicHook.dll をロードできません。"
+	IDS_ERR_PROCADDRESS,	"関数のアドレスを取得できません。"
+#endif
+END
+
+1 VERSIONINFO
+ FILEVERSION 0, 2, 0, 0
+ PRODUCTVERSION 0, 2, 0, 0
+ FILEFLAGSMASK 0x3FL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+	BLOCK "StringFileInfo"
+	BEGIN
+		BLOCK "041104B0"
+		BEGIN
+			VALUE "Comments", "\0"
+			VALUE "CompanyName", "itow,y.\0"
+			VALUE "FileDescription", "WheelMagic\0"
+			VALUE "FileVersion", "0.2.0\0"
+			VALUE "InternalName", "WheelMagic\0"
+			VALUE "LegalCopyright", "Copyright(c) 2009-2016 itow,y.\0"
+			VALUE "OriginalFilename", "WheelMagic.exe\0"
+#ifdef _DEBUG
+			VALUE "PrivateBuild", "\0"
+#endif
+			VALUE "ProductName", "WheelMagic\0"
+			VALUE "ProductVersion", "0.2.0\0"
+#ifdef _DEBUG
+			VALUE "SpecialBuild", "\0"
+#endif
+		END
+	END
+	BLOCK "VarFileInfo"
+	BEGIN
+		VALUE "Translation", 0x411, 1200
+	END
+END
